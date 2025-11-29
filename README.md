@@ -144,8 +144,8 @@ graph TB
 ### 1️⃣ Clone Repository
 
 ```bash
-git clone <repository-url>
-cd Prototype
+git clone https://github.com/4yu5h-crtl/AutoMed_AI
+cd AutoMed_AI
 ```
 
 ### 2️⃣ Backend Setup
@@ -602,3 +602,4 @@ npm run build
 - Check image formats (JPG, PNG, JPEG)
 - Verify images aren't corrupted
 - Ensure images are in class subfolders, not root
+
