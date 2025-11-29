@@ -5,7 +5,6 @@
 ![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)
 ![Python](https://img.shields.io/badge/python-3.10+-green.svg)
 ![Next.js](https://img.shields.io/badge/next.js-16.0.5-black.svg)
-![License](https://img.shields.io/badge/license-MIT-purple.svg)
 
 **LangGraph-powered AI agentic workflow for autonomous ML pipelines. Specialized agents collaborate to inspect datasets, apply augmentation, train models, and generate XAI visualizations.**
 
@@ -602,4 +601,5 @@ npm run build
 - Check image formats (JPG, PNG, JPEG)
 - Verify images aren't corrupted
 - Ensure images are in class subfolders, not root
+
 
