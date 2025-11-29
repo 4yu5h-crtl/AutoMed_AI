@@ -602,5 +602,3 @@ npm run build
 - Check image formats (JPG, PNG, JPEG)
 - Verify images aren't corrupted
 - Ensure images are in class subfolders, not root
-
----
