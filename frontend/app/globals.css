@@ -1,0 +1,200 @@
+@import "tailwindcss";
+@config "../tailwind.config.js";
+
+@layer base {
+  :root {
+    /* Background Colors */
+    --background: 220 30% 8%;
+    --card: 220 25% 12%;
+    --muted: 220 20% 20%;
+
+    /* Primary Accent (Cyan/Teal) */
+    --primary: 180 80% 55%;
+    --primary-foreground: 220 30% 8%;
+    --glow-primary: 180 80% 55%;
+
+    /* Secondary Accent (Purple/Violet) */
+    --secondary: 270 70% 60%;
+    --secondary-foreground: 210 40% 98%;
+    --glow-secondary: 270 70% 60%;
+
+    /* Text Colors */
+    --foreground: 210 40% 98%;
+    --muted-foreground: 215 15% 60%;
+
+    /* Semantic Colors */
+    --destructive: 0 84.2% 60.2%;
+    --border: 180 80% 55%;
+    --ring: 180 80% 55%;
+
+    /* Radius */
+    --radius: 0.5rem;
+
+    /* Transitions */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer components {
+
+  /* Card Panel */
+  .card-panel {
+    @apply bg-card border border-[hsl(var(--border)/0.3)] rounded-lg transition-all duration-300 ease-smooth;
+  }
+
+  .card-panel:hover {
+    @apply border-[hsl(var(--border)/0.6)] shadow-[0_0_20px_hsl(180_80%_55%_/_0.3)];
+  }
+
+  /* Glow Effects */
+  .glow-primary {
+    box-shadow:
+      0 0 20px hsl(180 80% 55% / 0.4),
+      0 0 40px hsl(180 80% 55% / 0.2);
+  }
+
+  .glow-secondary {
+    box-shadow:
+      0 0 20px hsl(270 70% 60% / 0.4),
+      0 0 40px hsl(270 70% 60% / 0.2);
+  }
+
+  .border-glow {
+    @apply border-primary shadow-[0_0_10px_hsl(var(--border)/0.5)];
+  }
+
+  /* Buttons */
+  .btn-primary-ghost {
+    @apply bg-[hsl(180_80%_55%_/_0.2)] border border-primary text-primary transition-all duration-300 rounded-lg px-4 py-2;
+  }
+
+  .btn-primary-ghost:hover {
+    @apply bg-primary text-primary-foreground;
+  }
+
+  .btn-icon-primary {
+    @apply border border-primary text-primary p-2 rounded-lg transition-all duration-300;
+  }
+
+  .btn-icon-primary:hover {
+    @apply bg-primary text-primary-foreground;
+  }
+
+  .btn-icon-secondary {
+    @apply border border-secondary text-secondary p-2 rounded-lg transition-all duration-300;
+  }
+
+  .btn-icon-secondary:hover {
+    @apply bg-secondary text-secondary-foreground;
+  }
+
+  /* Upload Zone */
+  .upload-zone {
+    @apply border-2 border-dashed border-[hsl(180_80%_55%_/_0.5)] rounded-lg p-8 min-h-[200px] flex flex-col items-center justify-center cursor-pointer transition-colors duration-300 bg-[hsl(180_80%_55%_/_0.05)];
+  }
+
+  .upload-zone:hover {
+    @apply border-primary bg-[hsl(180_80%_55%_/_0.1)];
+  }
+
+  /* Log Entry */
+  .log-entry {
+    @apply bg-card border border-[hsl(180_80%_55%_/_0.2)] rounded-lg p-3 transition-colors duration-300;
+  }
+
+  .log-entry:hover {
+    @apply border-[hsl(180_80%_55%_/_0.4)];
+  }
+
+  /* Select/Dropdown */
+  .select-trigger {
+    @apply bg-[hsl(180_80%_55%_/_0.1)] border border-primary text-foreground rounded-lg px-3 py-2;
+  }
+
+  .select-content {
+    @apply bg-card border border-primary rounded-lg shadow-lg;
+  }
+
+  .select-item {
+    @apply text-foreground hover:bg-[hsl(180_80%_55%_/_0.2)] px-3 py-2 cursor-pointer;
+  }
+
+  /* Gradients */
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary font-bold;
+  }
+
+  .image-placeholder {
+    background: linear-gradient(to bottom right,
+        hsl(220 20% 20%),
+        hsl(220 30% 8%));
+  }
+
+  .attention-map {
+    background: linear-gradient(to bottom right,
+        hsl(0 84.2% 60.2% / 0.2),
+        hsl(270 70% 60% / 0.3),
+        hsl(180 80% 55% / 0.2));
+  }
+}
+
+/* Animations */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.5s ease-out forwards;
+}
+
+@keyframes pulse-glow {
+
+  0%,
+  100% {
+    box-shadow: 0 0 20px hsl(180 80% 55% / 0.4);
+  }
+
+  50% {
+    box-shadow: 0 0 30px hsl(180 80% 55% / 0.6);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s infinite;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-background;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-muted rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-muted-foreground;
+}
+
+/* Glass Utility */
+.glass {
+  @apply bg-white/5 backdrop-blur-lg border border-white/10;
+}
