@@ -4,7 +4,7 @@ from dotenv import load_dotenv, find_dotenv
 from backend.logger import send_log
 
 # IMPORTANT: Configure GEMINI KEY before running
-genai.configure(api_key="AIzaSyBaY8lV5seyGjvJ6ScMvZ6h7jfGuh5VbAU")
+genai.configure(api_key="your-api-key")
 load_dotenv(find_dotenv(), override=False)
 model = genai.GenerativeModel("gemini-2.5-flash")
 
@@ -64,3 +64,4 @@ def augmentation_agent_node(state):
     send_log("augmentation", "Finished.")
 
     return state
+
